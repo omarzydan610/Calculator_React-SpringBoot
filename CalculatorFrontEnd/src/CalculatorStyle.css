@@ -1,0 +1,32 @@
+.calculator-body {
+  margin-top: 50px;
+  width: 400px;
+  height: 600px;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.screens {
+  margin: 20px;
+  background-color: #eeeeeec2;
+  height: 100px;
+  overflow: hidden;
+}
+
+.input,
+.output {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 15px;
+  font-size: 26px;
+}
+
+.buttons-container {
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
