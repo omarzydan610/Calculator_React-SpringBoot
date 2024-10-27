@@ -45,8 +45,15 @@ function Button({data,className,input,setInput,output,setOutput,lstUsed,setlstUs
     const getLastOperant=()=>{
         let inputCopy=String(input);
         let first=0;
-        for(let i=inputCopy.length;i>=0;i--){
-            if(inputCopy[i]==='+'||inputCopy[i]==='-'||inputCopy[i]==='*'||inputCopy[i]==='/'||inputCopy==='^'){
+        let closedParentheses=0;
+        for(let i=inputCopy.length-1;i>=0;i--){
+            if(inputCopy[i]===')'){
+                closedParentheses++;
+            }
+            else if(inputCopy[i]==='('){
+                closedParentheses--;
+            }
+            else if((inputCopy[i]==='+'||inputCopy[i]==='-'||inputCopy[i]==='*'||inputCopy[i]==='/')&&closedParentheses===0){
                 first=i+1;
                 break
             }
@@ -97,15 +104,18 @@ function Button({data,className,input,setInput,output,setOutput,lstUsed,setlstUs
                 }
             }
         }
-        else if(data==='√'||data==='x²'||data==='1/x'){
+        else if(data==='√'||data==='x²'||data==='1/x'||data==='%'){
             if(data==='√'){
                 setInput(getLastOperant()+'^(1/2))')
             }
             else if(data==='x²'){
                 setInput(getLastOperant()+'^2)')
             }
-            else{
+            else if(data==='1/x') {
                 setInput(getLastOperant()+'^(-1))')
+            }
+            else{
+                setInput(getLastOperant()+'%)')
             }
         }
         else if(data==='C'||data==='CE'){
