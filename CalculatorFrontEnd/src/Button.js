@@ -5,11 +5,21 @@ function Button({data,className,input,setInput,output,setOutput,lstUsed,setlstUs
     const toggle=()=>{
         let inputCopy=String(input);
         let lastOp=-1;
+        let closedParentheses=0;
         for(let i=inputCopy.length-1;i>=0;i--){
-            if(inputCopy[i]==='+'||inputCopy[i]==='-'||inputCopy[i]==='*'||inputCopy[i]==='/'){
+            if(inputCopy[i]===')'){
+                closedParentheses++;
+            }
+            else if(inputCopy[i]==='('){
+                closedParentheses--;
+            }
+            else if((inputCopy[i]==='+'||inputCopy[i]==='-'||inputCopy[i]==='*'||inputCopy[i]==='/')&&closedParentheses===0){
                 lastOp=i;
                 break
             }
+        }
+        if(lastOp===inputCopy.length-1){
+            return inputCopy;
         }
         if(inputCopy[lastOp]==='-'){
             if(inputCopy[lastOp-1]==='+'||inputCopy[lastOp-1]==='*'||inputCopy[lastOp-1]==='/'){
@@ -30,7 +40,44 @@ function Button({data,className,input,setInput,output,setOutput,lstUsed,setlstUs
         }
         return inputCopy;
     }
-    
+
+
+    const getLastOperant=()=>{
+        let inputCopy=String(input);
+        let first=0;
+        for(let i=inputCopy.length;i>=0;i--){
+            if(inputCopy[i]==='+'||inputCopy[i]==='-'||inputCopy[i]==='*'||inputCopy[i]==='/'||inputCopy==='^'){
+                first=i+1;
+                break
+            }
+        }
+        return(inputCopy.slice(0,first)+'('+inputCopy.slice(first));
+    }
+
+    const del=()=>{
+        let inputCopy=String(input);
+        let closedParentheses=1;
+        let end;
+        if(inputCopy[inputCopy.length-1]===')'){
+            for(let i=inputCopy.length-2;i>=0;i--){
+                if(inputCopy[i]===')'){
+                    closedParentheses++;
+                }
+                else if(inputCopy[i]==='('){
+                    closedParentheses--;
+                }
+                if(closedParentheses===0){
+                    end=i;
+                    break;
+                }
+            }
+            return(String(input).slice(0, end))
+        }
+        else{
+            return(String(input).slice(0, -1))
+        }
+    }
+
     const handleClick=async()=>{
         if(data==='='){
             if(lstUsed==='='){
@@ -51,33 +98,14 @@ function Button({data,className,input,setInput,output,setOutput,lstUsed,setlstUs
             }
         }
         else if(data==='√'||data==='x²'||data==='1/x'){
-            let flag=0;
-            if(output!==''){
-                setInput(output);
-                flag=1;
+            if(data==='√'){
+                setInput(getLastOperant()+'^(1/2))')
             }
-            try {
-                let op;
-                if(data==='√'){
-                    op='root'
-                }
-                else if(data==='x²'){
-                    op='exp2'
-                }
-                else{
-                    op='flip'
-                }
-                const response = await axios.get(`http://localhost:8080/api/calculator/${op}`, {
-                params: { param:(flag===0?input:output)},
-                });
-                setOutput(response.data);
-            } catch (error) {
-                if(error.response){
-                    setOutput(error.response.data);
-                }
-                else{
-                    setOutput("server error")
-                }
+            else if(data==='x²'){
+                setInput(getLastOperant()+'^2)')
+            }
+            else{
+                setInput(getLastOperant()+'^(-1))')
             }
         }
         else if(data==='C'||data==='CE'){
@@ -85,7 +113,7 @@ function Button({data,className,input,setInput,output,setOutput,lstUsed,setlstUs
             setOutput('');
         }
         else if(data==='←'){
-            setInput(String(input).slice(0, -1));
+            setInput(del());
             setOutput('');
         }
         else if(data==='+/-'){
