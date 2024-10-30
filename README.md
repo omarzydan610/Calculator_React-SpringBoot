@@ -137,7 +137,7 @@ The Spring Boot server will start, typically on `http://localhost:8080`.
 
 #### For these buttons You should enter the number before
 
-<img src="images/README/1730305712686.png"style="width: 200px; height: auto;"/>
+<img src="images/README/1730305712686.png" style="width: 250px; height: auto;"/>
 
 ## Test Cases
 
