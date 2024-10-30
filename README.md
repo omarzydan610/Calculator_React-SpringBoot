@@ -62,13 +62,13 @@ This is a web-based calculator application built with a **React** frontend and a
 ### Installation
 
 1. Install dependencies for the frontend:
-
+   
    ```bash
    cd frontend
    npm install
    ```
 2. Install dependencies for the backend:
-
+   
    ```bash
    cd ../backend
    mvn install
@@ -131,12 +131,11 @@ The Spring Boot server will start, typically on `http://localhost:8080`.
 - **Errors on Calculation**: Make sure to enter valid expressions. Avoid dividing by zero or using invalid operators.
 - **Network Errors**: If you encounter Axios errors, check your network connection and ensure that the backend is running on the expected port (`8080`).
 
-## Assumption
+## Assumptions
 
-For
+#### For these buttons You should enter the number before
 
-* Power 2
-* Square Root
-* 1/x
-* %
-  Buttons you should enter the number first
+![1730305712686](images/README/1730305712686.png)
+
+
+
