@@ -1,7 +1,10 @@
-
 # Calculator Web Application
 
+## OverView
+
 This is a web-based calculator application built with a **React** frontend and a **Spring Boot** backend. The app provides users with a simple interface to perform basic arithmetic operations. The frontend handles the user interface, while the backend processes calculations and manages requests.
+
+![1730305182981](images/README/1730305182981.png)
 
 ## Table of Contents
 
@@ -24,11 +27,13 @@ This is a web-based calculator application built with a **React** frontend and a
 ## Tech Stack
 
 ### Frontend
+
 - **React**: JavaScript library for building user interfaces.
 - **CSS**: Styling the calculator layout and components.
 - **Axios**: For making HTTP requests to the backend.
 
 ### Backend
+
 - **Spring Boot**: Java framework for building RESTful services.
 - **Java**: Programming language for backend logic.
 - **exp4j**: Library used to evaluate mathematical expressions.
@@ -49,6 +54,7 @@ This is a web-based calculator application built with a **React** frontend and a
 ## Getting Started
 
 ### Prerequisites
+
 - **Node.js** and **npm** (for running the frontend).
 - **Java 8+** (for running the Spring Boot backend).
 - **Maven** (for dependency management in the backend).
@@ -56,12 +62,13 @@ This is a web-based calculator application built with a **React** frontend and a
 ### Installation
 
 1. Install dependencies for the frontend:
+
    ```bash
    cd frontend
    npm install
    ```
-
 2. Install dependencies for the backend:
+
    ```bash
    cd ../backend
    mvn install
@@ -72,6 +79,7 @@ This is a web-based calculator application built with a **React** frontend and a
 ### Starting the Frontend
 
 Navigate to the `frontend` directory and run:
+
 ```bash
 npm start
 ```
@@ -79,6 +87,7 @@ npm start
 This will start the React development server, usually on `http://localhost:3000`.
 
 ### Frontend Structure
+
 - `App.js`: Root component, manages calculator state and event handling.
 - `CalculatorButton.js`: Button component, handling individual button interactions.
 - `CalculatorDisplay.js`: Display component, showing calculation results.
@@ -88,6 +97,7 @@ This will start the React development server, usually on `http://localhost:3000`
 ### Starting the Backend
 
 Navigate to the `backend` directory and run:
+
 ```bash
 mvn spring-boot:run
 ```
@@ -95,6 +105,7 @@ mvn spring-boot:run
 The Spring Boot server will start, typically on `http://localhost:8080`.
 
 ### Backend Structure
+
 - `CalculatorController.java`: Handles HTTP requests and routes them to the service layer.
 - `CalculatorService.java`: Core logic for arithmetic operations.
 - `Application.java`: Main entry point for starting the Spring Boot application.
@@ -106,6 +117,7 @@ The Spring Boot server will start, typically on `http://localhost:8080`.
 3. Open a browser and navigate to `http://localhost:3000` to use the calculator app.
 
 ### How to Use the Calculator
+
 - **Input Numbers**: Click on the number buttons to enter digits.
 - **Select Operation**: Choose an arithmetic operation (addition, subtraction, multiplication, division) by clicking the corresponding button.
 - **Calculate Result**: After entering the numbers and selecting the operation, click the `=` button to calculate the result.
@@ -118,3 +130,13 @@ The Spring Boot server will start, typically on `http://localhost:8080`.
 - **Frontend Not Loading**: Check if the backend server is running, as the frontend relies on it to fetch data.
 - **Errors on Calculation**: Make sure to enter valid expressions. Avoid dividing by zero or using invalid operators.
 - **Network Errors**: If you encounter Axios errors, check your network connection and ensure that the backend is running on the expected port (`8080`).
+
+## Assumption
+
+For
+
+* Power 2
+* Square Root
+* 1/x
+* %
+  Buttons you should enter the number first
