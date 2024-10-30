@@ -20,6 +20,9 @@ public class CalculatorController {
             expression = expression.replace("%", "*.01");
             Expression exp = new ExpressionBuilder(expression).build();
             double result = exp.evaluate();
+            if (Double.isInfinite(result)) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Division by zero");
+            }
             return ResponseEntity.ok(result);
         } catch (ArithmeticException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Division by zero");
