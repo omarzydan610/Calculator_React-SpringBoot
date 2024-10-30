@@ -69,7 +69,6 @@ This is a web-based calculator application built with a **React** frontend and a
    cd frontend
    npm install
    ```
-
 2. Install dependencies for the backend:
 
    ```bash
@@ -138,11 +137,12 @@ The Spring Boot server will start, typically on `http://localhost:8080`.
 
 #### For these buttons You should enter the number before
 
-<div style="text-align: center;"><img src="images/README/1730305712686.png"style="width: 200px; height: auto;"/></div>
+<div style="display:flex; justify-content:center"><img src="images/README/1730305712686.png"style="width: 200px; height: auto;"/></div>
 
 ## Test Cases
 
-| ![1730306349990](images/README/1730306349990.png) | ![1730306370499](images/README/1730306370499.png) |
-| ------------------------------------------------- | ------------------------------------------------- |
-| ![1730308687387](images/README/1730308687387.png) | ![1730308687387](images/README/1730306554033.png) |
-| ![1730309019642](images/README/1730309019642.png) | ![1730309029826](images/README/1730309029826.png) |
+
+| ![1730306349990](images/README/1730306349990.png)        | ![1730306370499](images/README/1730306370499.png)        |
+| -------------------------------------------------------- | -------------------------------------------------------- |
+| <br /> ![1730308687387](images/README/1730308687387.png) | ![1730308687387](images/README/1730306554033.png)     |
+| ![1730309019642](images/README/1730309019642.png)        | ![1730309029826](images/README/1730309029826.png)        |
