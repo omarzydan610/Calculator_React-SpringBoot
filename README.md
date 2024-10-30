@@ -62,13 +62,13 @@ This is a web-based calculator application built with a **React** frontend and a
 ### Installation
 
 1. Install dependencies for the frontend:
-   
+
    ```bash
    cd frontend
    npm install
    ```
 2. Install dependencies for the backend:
-   
+
    ```bash
    cd ../backend
    mvn install
@@ -135,7 +135,13 @@ The Spring Boot server will start, typically on `http://localhost:8080`.
 
 #### For these buttons You should enter the number before
 
-![1730305712686](images/README/1730305712686.png)
+| ![1730305712686](images/README/1730305712686.png) |  |  |
+| :---------------------------------------------- | - | - |
 
+## Test Cases
 
+| ![1730306349990](images/README/1730306349990.png) | ![1730306370499](images/README/1730306370499.png) |
+| ----------------------------------------------- | ----------------------------------------------- |
 
+| ![1730306554033](images/README/1730306554033.png) | ![1730306563039](images/README/1730306563039.png) |
+| ----------------------------------------------- | ----------------------------------------------- |
